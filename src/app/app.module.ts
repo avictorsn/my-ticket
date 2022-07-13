@@ -3,19 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BoardModule } from './board/board.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BoardComponent } from './components/board/board.component';
-import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    BoardComponent,
-    ModalComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BoardModule,
     BrowserAnimationsModule
   ],
   providers: [],

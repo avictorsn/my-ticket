@@ -1,0 +1,28 @@
+<div class="board-container">
+    <div cdkDropListGroup>
+        <div class="board-list">
+          <h2>TO DO</h2>
+      
+          <div
+            cdkDropList
+            [cdkDropListData]="todo"
+            class="drop-list"
+            (cdkDropListDropped)="drop($event)">
+              <app-ticket [ticket]="item" *ngFor="let item of todo" cdkDrag></app-ticket>
+          </div>
+        </div>
+      
+        <div class="board-list">
+          <h2>DONE</h2>
+      
+          <div
+            cdkDropList
+            [cdkDropListData]="done"
+            class="drop-list"
+            (cdkDropListDropped)="drop($event)">
+              <app-ticket [ticket]="item" *ngFor="let item of done" cdkDrag></app-ticket>
+          </div>
+        </div>
+      </div>
+      
+</div>

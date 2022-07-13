@@ -19,6 +19,11 @@ export class TicketService {
     ]
   }
   
+  // Função auxiliar para preenchimento da lista de tickets no status "IN PROGRESS"; 
+  getInProgressList(): Ticket[] {
+    return []
+  }
+  
   // Função auxiliar para preenchimento da lista de tickets no status "DONE"; 
   getDoneList(): Ticket[] {
     return []

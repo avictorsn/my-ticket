@@ -12,12 +12,15 @@ export class BoardComponent implements OnInit {
 
   todo: Ticket[] = [];
 
+  inProgress: Ticket[] = [];
+
   done: Ticket[] = [];
 
   constructor(private ticketService: TicketService) { }
 
   ngOnInit(): void {
     this.todo = this.ticketService.getTodoList();
+    this.inProgress = this.ticketService.getInProgressList();
     this.done = this.ticketService.getDoneList();
   }
 

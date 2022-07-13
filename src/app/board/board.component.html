@@ -11,6 +11,18 @@
               <app-ticket [ticket]="item" *ngFor="let item of todo" cdkDrag></app-ticket>
           </div>
         </div>
+
+        <div class="board-list">
+          <h2>IN PROGRESS</h2>
+      
+          <div
+            cdkDropList
+            [cdkDropListData]="inProgress"
+            class="drop-list"
+            (cdkDropListDropped)="drop($event)">
+              <app-ticket [ticket]="item" *ngFor="let item of inProgress" cdkDrag></app-ticket>
+          </div>
+        </div>
       
         <div class="board-list">
           <h2>DONE</h2>

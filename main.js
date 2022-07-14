@@ -5,6 +5,8 @@ app.whenReady().then(()=> {
     let win = new BrowserWindow({
         width:  800,
         height: 600,
+        autoHideMenuBar: true,
+        minWidth: 400,
         webPreferences: {
             devTools: false,
             accessibleTitle: true

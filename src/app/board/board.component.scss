@@ -1,16 +1,37 @@
 .board-container {
     height: 100vh;
-    display: flex;
     margin-top: 1rem;
+    padding: 1rem;
+}
+
+.board-flexbox {
+  display: flex;
 }
 
 .board-list {
-    width: 400px;
+    width: 10rem;
     height: 100vh;
     max-width: 100%;
     margin: 0 25px 25px 0;
     display: inline-block;
     vertical-align: top;
+
+    h2 {
+      text-align: center;
+    }
+
+    @media (max-width:500px) {
+      h2 {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width:400px) {
+      h2 {
+        font-size: 12px;
+      }
+    }
+
   }
   
   .drop-list {

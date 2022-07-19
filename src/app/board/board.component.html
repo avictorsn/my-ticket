@@ -1,40 +1,43 @@
 <div class="board-container">
-    <div cdkDropListGroup class="board-flexbox">
-        <div class="board-list">
-          <h2>TO DO</h2>
-      
-          <div
-            cdkDropList
-            [cdkDropListData]="todo"
-            class="drop-list"
-            (cdkDropListDropped)="drop($event)">
-              <app-ticket [ticket]="item" *ngFor="let item of todo" cdkDrag></app-ticket>
-          </div>
-        </div>
+  <button class="board-add-card-button" mat-fab color="secondary" aria-label="Example icon button with an add icon">
+    <mat-icon>add</mat-icon>
+  </button>
+  <div cdkDropListGroup class="board-flexbox">
+      <div class="board-list">
+        <h2>TO DO</h2>
 
-        <div class="board-list">
-          <h2>IN PROGRESS</h2>
-      
-          <div
-            cdkDropList
-            [cdkDropListData]="inProgress"
-            class="drop-list"
-            (cdkDropListDropped)="drop($event)">
-              <app-ticket [ticket]="item" *ngFor="let item of inProgress" cdkDrag></app-ticket>
-          </div>
-        </div>
-      
-        <div class="board-list">
-          <h2>DONE</h2>
-      
-          <div
-            cdkDropList
-            [cdkDropListData]="done"
-            class="drop-list"
-            (cdkDropListDropped)="drop($event)">
-              <app-ticket [ticket]="item" *ngFor="let item of done" cdkDrag></app-ticket>
-          </div>
+        <div
+          cdkDropList
+          [cdkDropListData]="todo"
+          class="drop-list"
+          (cdkDropListDropped)="drop($event)">
+            <app-ticket [ticket]="item" *ngFor="let item of todo" cdkDrag></app-ticket>
         </div>
       </div>
-      
+
+      <div class="board-list">
+        <h2>IN PROGRESS</h2>
+
+        <div
+          cdkDropList
+          [cdkDropListData]="inProgress"
+          class="drop-list"
+          (cdkDropListDropped)="drop($event)">
+            <app-ticket [ticket]="item" *ngFor="let item of inProgress" cdkDrag></app-ticket>
+        </div>
+      </div>
+
+      <div class="board-list">
+        <h2>DONE</h2>
+
+        <div
+          cdkDropList
+          [cdkDropListData]="done"
+          class="drop-list"
+          (cdkDropListDropped)="drop($event)">
+            <app-ticket [ticket]="item" *ngFor="let item of done" cdkDrag></app-ticket>
+        </div>
+      </div>
+    </div>
+
 </div>

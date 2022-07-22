@@ -1,7 +1,9 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Ticket } from 'src/model/ticket.model';
 import { TicketService } from 'src/services/ticket.service';
+import { ModalComponent } from './components/modal/modal.component';
 
 @Component({
   selector: 'app-board',
@@ -16,7 +18,7 @@ export class BoardComponent implements OnInit {
 
   done: Ticket[] = [];
 
-  constructor(private ticketService: TicketService) { }
+  constructor(private ticketService: TicketService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.todo = this.ticketService.getTodoList();
@@ -35,6 +37,24 @@ export class BoardComponent implements OnInit {
         event.currentIndex,
       );
     }
+  }
+
+  openModal($ticket?: Ticket, list?: Ticket[]): void {
+    const dialogRef = this.dialog.open(ModalComponent, {
+      data: { title: $ticket?.title, description: $ticket?.description} 
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      if(!$ticket && result) {
+        this.todo.push(result);
+      }
+      if($ticket && result) {
+        /* $ticket = result; */
+
+        /* Update current card data */
+      }
+    });
   }
 
 }

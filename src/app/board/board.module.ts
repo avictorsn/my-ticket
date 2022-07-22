@@ -9,12 +9,19 @@ import {MatButtonModule} from '@angular/material/button';
 import { TicketComponent } from './components/ticket/ticket.component';
 import {DragDropModule} from '@angular/cdk/drag-drop'; 
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatTooltipModule} from '@angular/material/tooltip'; 
+import {MatDialogModule} from '@angular/material/dialog'; 
+import { ModalComponent } from './components/modal/modal.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     BoardComponent,
     BoardsMenuComponent,
-    TicketComponent
+    TicketComponent,
+    ModalComponent
   ],
   exports: [
     BoardComponent,
@@ -27,7 +34,12 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     MatIconModule,
     MatButtonModule,
     DragDropModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatTooltipModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule
   ]
 })
 export class BoardModule { }

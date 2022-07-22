@@ -1,5 +1,5 @@
 <div class="board-container">
-  <button class="board-add-card-button" mat-fab color="secondary" aria-label="Example icon button with an add icon">
+  <button matTooltip="Adicionar Card" matTooltipPosition="right" class="board-add-card-button" mat-fab color="secondary" (click)="openModal()" aria-label="Example icon button with an add icon">
     <mat-icon>add</mat-icon>
   </button>
   <div cdkDropListGroup class="board-flexbox">
@@ -11,7 +11,7 @@
           [cdkDropListData]="todo"
           class="drop-list"
           (cdkDropListDropped)="drop($event)">
-            <app-ticket [ticket]="item" *ngFor="let item of todo" cdkDrag></app-ticket>
+            <app-ticket [ticket]="item" *ngFor="let item of todo" cdkDrag (click)="openModal(item, todo)"></app-ticket>
         </div>
       </div>
 
@@ -23,7 +23,7 @@
           [cdkDropListData]="inProgress"
           class="drop-list"
           (cdkDropListDropped)="drop($event)">
-            <app-ticket [ticket]="item" *ngFor="let item of inProgress" cdkDrag></app-ticket>
+            <app-ticket [ticket]="item" *ngFor="let item of inProgress" cdkDrag (click)="openModal(item, inProgress)"></app-ticket>
         </div>
       </div>
 
@@ -35,7 +35,7 @@
           [cdkDropListData]="done"
           class="drop-list"
           (cdkDropListDropped)="drop($event)">
-            <app-ticket [ticket]="item" *ngFor="let item of done" cdkDrag></app-ticket>
+            <app-ticket [ticket]="item" *ngFor="let item of done" cdkDrag (click)="openModal(item, done)"></app-ticket>
         </div>
       </div>
     </div>

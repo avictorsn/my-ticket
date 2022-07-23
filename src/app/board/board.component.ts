@@ -41,18 +41,26 @@ export class BoardComponent implements OnInit {
 
   openModal($ticket?: Ticket, list?: Ticket[]): void {
     const dialogRef = this.dialog.open(ModalComponent, {
-      data: { title: $ticket?.title, description: $ticket?.description} 
+      data: { 
+        ticket: {
+          title: $ticket?.title, description: $ticket?.description 
+        } 
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      if(result.delete && list && $ticket) {
+        list.splice(list.indexOf($ticket), 1)
+      } else {
+        if(!$ticket && result.ticket) {
+          result.id  = this.ticketService.autoGenerateId();
+          this.todo.push(result.ticket);
+        }
+        if($ticket && result.ticket && list) {
+          list[list.indexOf($ticket)] = result.ticket
+        }
+      }
 
-      if(!$ticket && result) {
-        result.id  = this.ticketService.autoGenerateId();
-        this.todo.push(result);
-      }
-      if($ticket && result && list) {
-        list[list.indexOf($ticket)] = result
-      }
     });
   }
 

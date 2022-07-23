@@ -1,18 +1,18 @@
-<h2 mat-dialog-title align="center">{{!isNewTicket ? data.title : 'Novo card'}}</h2>
+<h2 mat-dialog-title align="center">{{!isNewTicket ? data.ticket.title : 'Novo card'}}</h2>
 <mat-dialog-content class="mat-typography">
     <mat-form-field appearance="fill">
         <mat-label>Título</mat-label>
-        <input matInput [(ngModel)]="data.title" required cdkFocusInitial>
+        <input matInput [(ngModel)]="data.ticket.title" required cdkFocusInitial>
     </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-content class="mat-typography">
     <mat-form-field appearance="fill">
         <mat-label>Descrição</mat-label>
-        <input matInput [(ngModel)]="data.description" required>
+        <input matInput [(ngModel)]="data.ticket.description" required>
     </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-    <button *ngIf="data" mat-mini-fab color="warn" aria-label="Example icon button with a delete icon">
+    <button *ngIf="!isNewTicket" mat-mini-fab color="warn" aria-label="Example icon button with a delete icon" (click)="delete()">
         <mat-icon>delete</mat-icon>
     </button>
   <button mat-button mat-dialog-close >Cancelar</button>

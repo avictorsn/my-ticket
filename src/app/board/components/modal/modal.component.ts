@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Ticket } from 'src/model/ticket.model';
 
 @Component({
@@ -11,14 +11,19 @@ export class ModalComponent implements OnInit {
    
   isNewTicket: boolean = false;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Ticket) { }
+  constructor(public dialogRef: MatDialogRef<ModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
-    this.isNewTicket = this.data.title === undefined
+    this.isNewTicket = this.data.ticket.title === undefined
   }
 
-  invalid() {
-    return !this.data.title || !this.data.description
+  invalid(): boolean {
+    return !this.data.ticket.title || !this.data.ticket.description
   }
+
+  delete(): void {
+    this.data.delete = true;
+    this.dialogRef.close(this.data);
+  } 
 
 }

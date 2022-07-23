@@ -14,8 +14,8 @@ export class TicketService {
   // Função auxiliar para preenchimento da lista de tickets no status "TO DO"; 
   getTodoList(): Ticket[] {
     return [
-      {title: 'Aula 1', description: 'Introdução ao Electron'},
-      {title: 'Aula 2', description: 'Explicando a aplicação Angular'}
+      {id: this.autoGenerateId(), title: 'Aula 1', description: 'Introdução ao Electron'},
+      {id: this.autoGenerateId(), title: 'Aula 2', description: 'Explicando a aplicação Angular'}
     ]
   }
   
@@ -27,5 +27,9 @@ export class TicketService {
   // Função auxiliar para preenchimento da lista de tickets no status "DONE"; 
   getDoneList(): Ticket[] {
     return []
+  }
+
+  autoGenerateId(): string {
+    return Math.random().toString(20).substring(2) 
   }
 }

@@ -47,12 +47,11 @@ export class BoardComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
 
       if(!$ticket && result) {
+        result.id  = this.ticketService.autoGenerateId();
         this.todo.push(result);
       }
-      if($ticket && result) {
-        /* $ticket = result; */
-
-        /* Update current card data */
+      if($ticket && result && list) {
+        list[list.indexOf($ticket)] = result
       }
     });
   }

@@ -8,11 +8,17 @@ import { Ticket } from 'src/model/ticket.model';
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent implements OnInit {
-  
+   
+  isNewTicket: boolean = false;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: Ticket) { }
 
   ngOnInit(): void {
+    this.isNewTicket = this.data.title === undefined
+  }
+
+  invalid() {
+    return !this.data.title || !this.data.description
   }
 
 }

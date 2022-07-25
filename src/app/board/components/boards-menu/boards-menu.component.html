@@ -1,10 +1,14 @@
+<!-- Componente de barra de Menu superior da aplicação -->
 <mat-toolbar>
+    <!-- Botão de toogle para menu drawer lateral -->
     <button mat-icon-button class="menu-icon" aria-label="Button with menu icon" (click)="drawer.toggle()">
      <mat-icon>menu</mat-icon>
    </button>
+   <!-- Título da aplicação -->
    <span>My Ticket</span>
 </mat-toolbar>
 
+<!-- Conteúdo do menu drawer lateral -->
 <mat-drawer-container class="menu-container" [ngClass]="{'menu-drawer-hidden': !drawer.opened}" autosize>
   <mat-drawer #drawer class="menu-sidenav" mode="side">
   </mat-drawer>

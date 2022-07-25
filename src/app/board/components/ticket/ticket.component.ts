@@ -8,6 +8,7 @@ import { Ticket } from 'src/model/ticket.model';
 })
 export class TicketComponent implements OnInit {
 
+  /* Atributo "ticket" recebido e definido como propriedade de Input pelo componente pai; */
   @Input() ticket: Ticket = new Ticket();
 
   constructor() { }

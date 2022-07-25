@@ -1,43 +1,49 @@
+<!-- Contêiner principal para o Board -->
 <div class="board-container">
-  <button matTooltip="Adicionar Card" matTooltipPosition="right" class="board-add-card-button" mat-fab color="secondary" (click)="openModal()" aria-label="Example icon button with an add icon">
+  <!-- Botão de adicionar ticket -->
+  <button matTooltip="Adicionar Ticket" matTooltipPosition="right" class="board-add-ticket-button" mat-fab color="secondary" (click)="openModal()" aria-label="Adicionar ticket no board">
     <mat-icon>add</mat-icon>
   </button>
+  <!-- Wrapper de listas arrastáveis do board -->
   <div cdkDropListGroup class="board-flexbox">
-      <div class="board-list">
-        <h2>TO DO</h2>
+    <!-- Lista "TO DO" -->
+    <div class="board-list">
+      <h2>TO DO</h2>
 
-        <div
-          cdkDropList
-          [cdkDropListData]="todo"
-          class="drop-list"
-          (cdkDropListDropped)="drop($event)">
-            <app-ticket [ticket]="item" *ngFor="let item of todo" cdkDrag (click)="openModal(item, todo)"></app-ticket>
-        </div>
-      </div>
-
-      <div class="board-list">
-        <h2>IN PROGRESS</h2>
-
-        <div
-          cdkDropList
-          [cdkDropListData]="inProgress"
-          class="drop-list"
-          (cdkDropListDropped)="drop($event)">
-            <app-ticket [ticket]="item" *ngFor="let item of inProgress" cdkDrag (click)="openModal(item, inProgress)"></app-ticket>
-        </div>
-      </div>
-
-      <div class="board-list">
-        <h2>DONE</h2>
-
-        <div
-          cdkDropList
-          [cdkDropListData]="done"
-          class="drop-list"
-          (cdkDropListDropped)="drop($event)">
-            <app-ticket [ticket]="item" *ngFor="let item of done" cdkDrag (click)="openModal(item, done)"></app-ticket>
-        </div>
+      <div
+        cdkDropList
+        [cdkDropListData]="boardService.todo.list"
+        class="drop-list"
+        (cdkDropListDropped)="drop($event)">
+          <app-ticket [ticket]="item" *ngFor="let item of boardService.todo.list" cdkDrag (click)="openModal(item, boardService.todo)"></app-ticket>
       </div>
     </div>
+
+    <!-- Lista "IN PROGRESS" -->
+    <div class="board-list">
+      <h2>IN PROGRESS</h2>
+
+      <div
+        cdkDropList
+        [cdkDropListData]="boardService.inProgress.list"
+        class="drop-list"
+        (cdkDropListDropped)="drop($event)">
+          <app-ticket [ticket]="item" *ngFor="let item of boardService.inProgress.list" cdkDrag (click)="openModal(item, boardService.inProgress)"></app-ticket>
+      </div>
+    </div>
+
+    <!-- Lista "DONE" -->
+    <div class="board-list">
+      <h2>DONE</h2>
+
+      <div
+        cdkDropList
+        [cdkDropListData]="boardService.done.list"
+        class="drop-list"
+        (cdkDropListDropped)="drop($event)">
+          <app-ticket [ticket]="item" *ngFor="let item of boardService.done.list" cdkDrag (click)="openModal(item, boardService.done)"></app-ticket>
+      </div>
+    </div>
+  </div>
 
 </div>

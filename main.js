@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, Menu, Tray } = require('electron')
 const path = require('path')
 
 
@@ -10,15 +10,26 @@ const createWindow = () => {
       webPreferences: {
         preload: path.join(__dirname, 'preload.js'),
         contextIsolation: false,
-        devTools: true
-      }
+        devTools: true,
+        nodeIntegration: true
+      },
+      alwaysOnTop: true
     })
   
-    win.loadFile('index.html')
+    win.loadFile('index.html')    
+
 }
 
 app.whenReady().then(()=> {
     createWindow()
+    let tray = new Tray('./favicon.ico')
+    const contextMenu = Menu.buildFromTemplate([
+      {label: 'Item1', type: 'checkbox'},
+      {type: 'separator'},
+      {label: 'Item2', type: 'radio'},
+    ])
+    tray.setToolTip('Electron teste tray')
+    tray.setContextMenu(contextMenu)
 })
 
 

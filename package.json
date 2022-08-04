@@ -1,6 +1,6 @@
 {
   "name": "my-ticket",
-  "version": "0.0.0",
+  "version": "2.1.0",
   "main": "main.js",
   "scripts": {
     "ng": "ng",
@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "dev": "node init.js"
+    "dev": "node init.js",
+    "build:electron": "ng build --prod --base-href ./ && electron-builder --win"
   },
   "private": true,
   "dependencies": {
@@ -25,7 +26,6 @@
     "@angular/router": "~11.2.4",
     "@types/electron": "^1.6.10",
     "concurrently": "^7.3.0",
-    "electron": "^20.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
@@ -37,6 +37,8 @@
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
+    "electron": "^20.0.1",
+    "electron-builder": "^23.3.3",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~6.1.0",
     "karma-chrome-launcher": "~3.1.0",
@@ -47,5 +49,27 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.1.5"
+  },
+  
+  "build": {
+    "appId": "com.myticket",
+    "productName": "My Ticket",
+    "files": [
+      "**/*",
+      "dist/**/*"
+    ],
+    "directories": {
+      "output": "release",
+      "buildResources": "dist"
+    },
+    "asar": false,
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "runAfterFinish": true
+    }
   }
 }

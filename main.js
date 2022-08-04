@@ -14,7 +14,8 @@ app.whenReady().then(()=> {
         height: 600,
         webPreferences: {
             devTools: true,
-            nodeIntegration: true
+            nodeIntegration: true,
+            contextIsolation: false
         }
     };
     createWindow(window, optionsWindow1, 'http://localhost:4200');

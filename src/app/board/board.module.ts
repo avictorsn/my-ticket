@@ -7,10 +7,10 @@ import { BoardComponent } from './board.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import { TicketComponent } from './components/ticket/ticket.component';
-import {DragDropModule} from '@angular/cdk/drag-drop'; 
+import {DragDropModule} from '@angular/cdk/drag-drop';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import {MatTooltipModule} from '@angular/material/tooltip'; 
-import {MatDialogModule} from '@angular/material/dialog'; 
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatDialogModule} from '@angular/material/dialog';
 import { ModalComponent } from './components/modal/modal.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -26,7 +26,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
   ],
   exports: [
     BoardComponent,
-    BoardsMenuComponent  
+    BoardsMenuComponent
   ],
   imports: [
     CommonModule,

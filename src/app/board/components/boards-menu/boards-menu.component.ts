@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IpcService } from 'src/app/ipc.service';
 
 @Component({
   selector: 'app-boards-menu',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BoardsMenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ipcRenderer: IpcService) { }
 
   ngOnInit(): void {
+  }
+
+  onClickMenu() {
+    this.ipcRenderer._ipc?.send('click-menu')
   }
 
 }
